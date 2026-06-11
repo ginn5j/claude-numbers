@@ -1,0 +1,6 @@
+{
+  "name": "numbers",
+  "version": "2.1.0",
+  "description": "Read, analyze, and manipulate Apple Numbers spreadsheets (.numbers files)",
+  "license": "MIT"
+}
