@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repo Is
 
-A Claude Code skill for reading, analyzing, and modifying Apple Numbers spreadsheets entirely through Numbers.app — no third-party Python packages required. Installed by symlinking `skills/numbers/` into `~/.claude/skills/numbers`. See [README.md](README.md) for full installation instructions.
+A Claude Code skill for reading, analyzing, and modifying Apple Numbers spreadsheets entirely through Numbers.app — no third-party Python packages required. Installed by `./install.sh`, which symlinks `skills/numbers/` into `~/.claude/skills/numbers`. See [README.md](README.md) for full installation instructions.
 
 ## Repository Structure
 
@@ -26,6 +26,7 @@ numbers.skill/
 ├── tests/
 │   ├── make_fixture.py         Builds a sample two-sheet .numbers file via Numbers.app
 │   └── smoke_test.py           End-to-end test of every script against the fixture
+├── install.sh                  Symlinks skills/numbers into ~/.claude/skills
 └── CLAUDE.md
 ```
 

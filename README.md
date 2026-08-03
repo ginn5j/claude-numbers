@@ -26,13 +26,16 @@ All operations go through Numbers.app via AppleScript — no third-party package
 
 ## Installation
 
-Symlink the skill directory into `~/.claude/skills/`. Changes to the repo are picked
-up automatically without reinstalling.
-
 ```bash
-mkdir -p ~/.claude/skills
-ln -s "/path/to/numbers.skill/skills/numbers" ~/.claude/skills/numbers
+git clone https://github.com/ginn5j/numbers.skill.git
+cd numbers.skill
+./install.sh
 ```
+
+That symlinks `skills/numbers/` into `~/.claude/skills/`, so edits to the repo are
+picked up without reinstalling. Re-running it is safe, and it will not overwrite a
+real directory already sitting at that path. `./install.sh --uninstall` removes the
+link, and only if it points back into this clone.
 
 No restart required. If Claude Code is already running, run `/reload-plugins` to pick
 up the skill immediately. The skill is also invocable directly as `/numbers`.
