@@ -9,7 +9,7 @@ A Claude Code skill for reading, analyzing, and modifying Apple Numbers spreadsh
 ## Repository Structure
 
 ```
-numbers.skill/
+claude-numbers/
 ├── .claude-plugin/
 │   └── plugin.json             Plugin manifest (name, version)
 ├── skills/

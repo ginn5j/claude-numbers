@@ -1,4 +1,4 @@
-# numbers.skill
+# claude-numbers
 
 A Claude Code skill for reading, analyzing, and modifying Apple Numbers spreadsheets.
 
@@ -27,8 +27,8 @@ All operations go through Numbers.app via AppleScript — no third-party package
 ## Installation
 
 ```bash
-git clone https://github.com/ginn5j/numbers.skill.git
-cd numbers.skill
+git clone https://github.com/ginn5j/claude-numbers.git
+cd claude-numbers
 ./install.sh
 ```
 
