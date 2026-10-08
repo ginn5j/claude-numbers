@@ -1,7 +1,7 @@
 ---
 name: numbers
 description: Read, analyze, and manipulate Apple Numbers spreadsheets (.numbers files). Use when the user mentions a .numbers file, wants to inspect/edit/export Numbers data, modify cells, write formulas, read table values, or work with any Apple Numbers document — even if they just provide a path ending in .numbers.
-version: 2.1.0
+version: 2.1.1
 allowed-tools: Bash(python3:*), Bash(osascript:*), Read, Write, Glob
 ---
 
@@ -92,15 +92,8 @@ overwrite the original**.
 
 ### Phase 3: Derive Output Path
 
-If the user has not specified an output path, derive one by appending `_modified`
-before the extension:
-
-```python
-from pathlib import Path
-original = Path("/path/to/file.numbers")
-output = original.with_stem(original.stem + "_modified")
-# → /path/to/file_modified.numbers
-```
+If the user has not specified an output path, append `_modified` to the file name
+before the extension (`/path/to/file.numbers` → `/path/to/file_modified.numbers`).
 
 Always tell the user the exact path of the saved file.
 
