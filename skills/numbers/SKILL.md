@@ -1,7 +1,7 @@
 ---
 name: numbers
 description: Read, analyze, and manipulate Apple Numbers spreadsheets (.numbers files). Use when the user mentions a .numbers file, wants to inspect/edit/export Numbers data, modify cells, write formulas, read table values, or work with any Apple Numbers document — even if they just provide a path ending in .numbers.
-version: 2.1.1
+version: 2.1.2
 allowed-tools: Bash(python3:*), Bash(osascript:*), Read, Write, Glob
 ---
 
@@ -278,11 +278,26 @@ add `--show-formulas`.
 ## Closing Documents
 
 Scripts only close documents they themselves opened, so a window the user already
-had open is never touched. To close everything:
+had open is never touched. To close every document that has no unsaved changes:
 
 ```bash
-osascript -e 'tell application id "com.apple.Numbers" to close every document saving no'
+osascript << 'EOF'
+tell application id "com.apple.Numbers"
+  set keptOpen to {}
+  repeat with d in (get every document)
+    if modified of d then
+      set end of keptOpen to name of d
+    else
+      close d saving no
+    end if
+  end repeat
+  return keptOpen
+end tell
+EOF
 ```
+
+It returns the names of documents left open because they have unsaved changes.
+Tell the user which ones; saving or discarding those edits is their call.
 
 ## Known Limitations
 
